@@ -16,6 +16,10 @@ footer.main {
   .info-bar {
     float: right;
 
+    @include breakpoint(medium down) {
+      display: none;
+    }
+
     & > div {
       display: inline-block;
       margin-top: 0.1rem;

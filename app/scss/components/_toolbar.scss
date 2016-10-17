@@ -4,10 +4,10 @@
 
 #toolbar {
   text-align: right;
-  padding: 0 1rem;
+  padding: 1rem;
 
-  @include breakpoint(medium) {
-    padding: 1rem;
+  @include breakpoint(medium down) {
+      display: none;
   }
 
   & > * {
