@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 
 const Footer = props =>
   <footer className="main">
-    <div className="credits" title="Well, no there is nothing special here">
+    <div className="credits" title="Well, no: there is nothing special here!">
       By the good folks at&nbsp;
       <a
         href="https://tailordev.fr"
