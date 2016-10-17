@@ -61,5 +61,14 @@ $message-box-height: 65px;
                 }
             }
         }
+
+        @include breakpoint(small only) {
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+
+            p {
+                margin-right: 1.5rem;
+            }
+        }
     }
 }
