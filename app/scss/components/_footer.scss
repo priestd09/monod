@@ -16,12 +16,12 @@ footer.main {
   .info-bar {
     float: right;
 
-    &> div {
+    & > div {
       display: inline-block;
       margin-top: 0.1rem;
       margin-left: 0.3rem;
 
-      &> span {
+      & > span {
         padding: 0.3rem 0.5rem 0.3rem;
         border-radius: $global-radius;
         background-color: darken($td-blue, 10%);
@@ -29,7 +29,7 @@ footer.main {
       }
     }
 
-    &> .lock span {
+    & > .lock span {
       color: $alert-color;
     }
   }
