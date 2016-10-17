@@ -47,10 +47,7 @@ if ('production' === process.env.NODE_ENV || 'test' === process.env.NODE_ENV) {
       }
 
       const document = JSON.parse(data);
-
-      if (document.readonly) {
-        delete(document.readonly);
-      }
+      document.readonly = !!document.readonly;
 
       return res.json(document);
     });
@@ -70,8 +67,6 @@ if ('production' === process.env.NODE_ENV || 'test' === process.env.NODE_ENV) {
       const document = readErr ? {} : JSON.parse(data);
 
       if (!!document.readonly) {
-        delete(document.readonly);
-
         return res.status(403).json(document);
       }
 

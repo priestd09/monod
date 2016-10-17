@@ -76,6 +76,7 @@ export function serverPersist() {
           last_modified: res.body.last_modified,
           last_modified_locally: null,
           template: res.body.template || '',
+          readonly: res.body.readonly || false,
         });
 
         return Promise.resolve(current);
@@ -107,6 +108,7 @@ export function serverPersist() {
             last_modified: res.body.last_modified,
             last_modified_locally: null,
             template: res.body.template || '',
+            readonly: res.body.readonly || false,
           });
 
           dispatch(warning(config.READONLY_MESSAGE));

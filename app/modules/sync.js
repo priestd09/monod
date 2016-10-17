@@ -66,6 +66,7 @@ export function synchronize() { // eslint-disable-line import/prefer-default-exp
           content: res.body.content,
           last_modified: res.body.last_modified,
           template: res.body.template || '', // avoid BC break
+          readonly: res.body.readonly || false, // avoid BC break
         }));
       })
       .catch((err) => {
@@ -140,6 +141,7 @@ export function synchronize() { // eslint-disable-line import/prefer-default-exp
                 content: serverDoc.get('content'),
                 last_modified: serverDoc.get('last_modified'),
                 template: serverDoc.get('template'),
+                readonly: serverDoc.get('readonly'),
               });
 
               return db

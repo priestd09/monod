@@ -9,6 +9,7 @@ export default class Document extends Record({
   last_modified: null, // defined by the server
   last_modified_locally: null,
   template: '',
+  readonly: false,
 }) {
 
   hasDefaultContent() {
@@ -25,5 +26,9 @@ export default class Document extends Record({
 
   isDefault() {
     return this.hasDefaultContent() && this.hasNeverBeenSync() && this.hasNoLocalChanges();
+  }
+
+  isReadOnly() {
+    return true === this.readonly;
   }
 }
