@@ -1,33 +1,45 @@
 import React, { PropTypes } from 'react';
 
+import DefaultFooter from './default';
+import Sync from '../Sync';
 
 const Footer = props =>
-  <footer className="main">
-    <div className="version">
-      <span className="git-ref">
-        <i className="fa fa-code-fork" />&nbsp;{props.version}
+  <DefaultFooter version={props.version}>
+    {props.locked ?
+      <div className="lock">
+        <span title="This document is locked and cannot be modified">
+          <i className="fa fa-lock" />
+        </span>
+      </div>
+      : null
+    }
+
+    <Sync />
+
+    <div className="help">
+      <span className="help-link">
+        <i className="fa fa-book" />
+        &nbsp;&nbsp;
+        <a
+          href="https://github.com/TailorDev/monod/blob/master/doc/writing.md"
+          title="The Monod documentation"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Documentation
+        </a>
       </span>
     </div>
-
-    {props.children ? props.children : null}
-
-    <div className="credits">
-      By the good folks at&nbsp;
-      <a
-        href="https://tailordev.fr"
-        title="Read more about us"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        TailorDev
-      </a>, 2016.
-    </div>
-  </footer>
+  </DefaultFooter>
 ;
 
 Footer.propTypes = {
   version: PropTypes.string.isRequired,
-  children: PropTypes.node,
+  locked: PropTypes.bool.isRequired,
+};
+
+Footer.defaultProps = {
+  locked: false,
 };
 
 export default Footer;

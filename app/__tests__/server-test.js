@@ -37,7 +37,8 @@ describe('Express app', () => {
         .expect(200, {
           content: { ba: 'bar' },
           last_modified: 1459441561629,
-          uuid: '9950e80b-f214-45d0-a98c-bffee2582c71'
+          uuid: '9950e80b-f214-45d0-a98c-bffee2582c71',
+          readonly: false,
         }, done);
     });
 
@@ -49,6 +50,7 @@ describe('Express app', () => {
           content: { ba: 'bar' },
           last_modified: 1459441561629,
           uuid: READONLY_DOCUMENT_UUID,
+          readonly: true,
         }, done);
     });
   });
@@ -128,7 +130,7 @@ describe('Express app', () => {
           content: content,
           uuid: EXISTING_DOCUMENT_UUID,
           template: '',
-          last_modified: 'date'
+          last_modified: 'date',
         }, done);
     });
 
@@ -143,6 +145,7 @@ describe('Express app', () => {
           },
           last_modified: 1459441561629,
           uuid: READONLY_DOCUMENT_UUID,
+          readonly: true,
         }, done);
     });
   });
