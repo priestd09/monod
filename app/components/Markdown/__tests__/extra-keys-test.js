@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { Tags, addOrRemoveTag } from '../extra-keys';
+import { Tags, addOrRemoveTag, pre, mac } from '../extra-keys';
 
 // see: https://github.com/mochajs/mocha/issues/1847
 const { describe, it } = global;
@@ -38,5 +38,13 @@ This should not be strong**`;
     const result = addOrRemoveTag(Tags.STRONG, content);
 
     expect(result).to.equal('Hello\nThis should not be strong');
+  });
+
+  it('should properly set shortcut prefix', () => {
+    if (!mac) {
+      expect(pre).to.equal('Ctrl-');
+    } else {
+      expect(pre).to.equal('Cmd-');
+    }
   });
 });
