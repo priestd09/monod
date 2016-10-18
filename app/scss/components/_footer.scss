@@ -13,6 +13,16 @@ footer.main {
     float: left;
   }
 
+  @include breakpoint(small only) {
+    padding: .15rem .1rem;
+    font-size: 0.5rem;
+    text-align: center;
+
+    .credits {
+      float: none;
+    }
+  }
+
   .info-bar {
     float: right;
 

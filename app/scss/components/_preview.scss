@@ -10,6 +10,10 @@
         padding: 1rem 2rem;
         font-size: 1.2rem;
 
+        word-wrap: break-all;
+        word-wrap: break-word;
+        hyphens: auto;
+
         a {
             border-bottom: 1px solid lighten($primary-color, 40%);
         }
@@ -176,5 +180,20 @@
         .invalid-ref {
           color: $warning-color;
         }
+
+      @include breakpoint(small only) {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+
+        p {
+          line-height: 1.2;
+        }
+
+        kbd {
+          font-size: inherit;
+          padding: 0.1rem 0.4rem 0;
+          line-height: 1rem;
+        }
+      }
     }
 }
