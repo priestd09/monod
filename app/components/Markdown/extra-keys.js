@@ -2,8 +2,8 @@ import { saveAs } from 'file-saver';
 import codemirror from 'codemirror';
 import isEqual from 'lodash.isequal';
 
-const mac = isEqual(codemirror.keyMap.default, codemirror.keyMap.macDefault);
-const pre = mac ? 'Cmd-' : 'Ctrl-';
+export const mac = isEqual(codemirror.keyMap.default, codemirror.keyMap.macDefault);
+export const pre = mac ? 'Cmd-' : 'Ctrl-';
 
 export const Tags = {
   STRONG: '**',
