@@ -1,5 +1,9 @@
 import { saveAs } from 'file-saver';
+import codemirror from 'codemirror';
+import isEqual from 'lodash.isequal';
 
+export const mac = isEqual(codemirror.keyMap.default, codemirror.keyMap.macDefault);
+export const pre = mac ? 'Cmd-' : 'Ctrl-';
 
 export const Tags = {
   STRONG: '**',
@@ -21,19 +25,22 @@ export function addOrRemoveTag(tag, selection) {
   return `${tag}${selection}${tag}`;
 }
 
-const extraKeys = {
-  'Cmd-Z': (cm) => {
-    cm.undo();
-  },
-  'Cmd-B': (cm) => {
-    cm.replaceSelection(addOrRemoveTag(Tags.STRONG, cm.getSelection()), 'around');
-  },
-  'Cmd-I': (cm) => {
-    cm.replaceSelection(addOrRemoveTag(Tags.ITALIC, cm.getSelection()), 'around');
-  },
-  'Cmd-S': (cm) => {
-    saveAs(new Blob([cm.getValue()], { type: 'text/plain' }), 'monod.md');
-  },
+const extraKeys = {};
+
+extraKeys[`${pre}Z`] = (cm) => {
+  cm.undo();
+};
+
+extraKeys[`${pre}B`] = (cm) => {
+  cm.replaceSelection(addOrRemoveTag(Tags.STRONG, cm.getSelection()), 'around');
+};
+
+extraKeys[`${pre}I`] = (cm) => {
+  cm.replaceSelection(addOrRemoveTag(Tags.ITALIC, cm.getSelection()), 'around');
+};
+
+extraKeys[`${pre}S`] = (cm) => {
+  saveAs(new Blob([cm.getValue()], { type: 'text/plain' }), 'monod.md');
 };
 
 export default extraKeys;
