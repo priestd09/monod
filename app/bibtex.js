@@ -15,9 +15,10 @@ function optional(string, fallback) {
   return undefined !== str ? `(${str})` : '';
 }
 
-function linkify(string) {
+function linkify(string, title) {
+  const str = title || string;
   if (/^https?:\/\//.test(string)) {
-    return `<a href="${string}" rel="noreferrer noopener">${string}</a>`;
+    return `<a href="${string}" rel="noreferrer noopener">${str}</a>`;
   }
 
   return string;
@@ -30,6 +31,14 @@ function linkifyDOI(string) {
   }
 
   return linkify(str);
+}
+
+function linkifyTitle(title, link) {
+  if (/^https?:\/\//.test(link)) {
+    return linkify(link, title);
+  }
+
+  return title;
 }
 
 function replaceLaTeXChars(string) {
@@ -175,7 +184,7 @@ function formatHtmlEntry(type, data) {
     default:
       content = [
         `${formatAuthors(data.author)} (${data.year}).`,
-        `${data.title}.`,
+        `${linkifyTitle(data.title, data.url)}.`,
         `${data.note || ''}`,
       ].join(' ');
 
