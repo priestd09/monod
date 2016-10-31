@@ -1,0 +1,11 @@
+/* TEAM */
+William Durand
+Twitter: @TailorDev
+Github: https://github.com/willdurand
+
+Julien Maupetit
+Twitter: @jmaupetit
+Github: https://github.com/jmaupetit
+
+/* THANKS */
+Contributors: https://github.com/TailorDev/monod/graphs/contributors
