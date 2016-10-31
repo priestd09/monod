@@ -1,10 +1,10 @@
 /* TEAM */
 William Durand
-Twitter: @TailorDev
+Twitter: @couac
 Github: https://github.com/willdurand
 
 Julien Maupetit
-Twitter: @jmaupetit
+Twitter: @julienmaupetit
 Github: https://github.com/jmaupetit
 
 /* THANKS */
