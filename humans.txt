@@ -1,0 +1,11 @@
+/* TEAM */
+William Durand
+Twitter: @couac
+Github: https://github.com/willdurand
+
+Julien Maupetit
+Twitter: @julienmaupetit
+Github: https://github.com/jmaupetit
+
+/* THANKS */
+Contributors: https://github.com/TailorDev/monod/graphs/contributors
