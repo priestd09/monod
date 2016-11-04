@@ -11,7 +11,29 @@
 </head>
 <body>
 <% if (htmlWebpackPlugin.options.appMountId) { %>
-  <div id="<%= htmlWebpackPlugin.options.appMountId%>" data-app-version="<%= htmlWebpackPlugin.options.version %>"></div>
+  <div
+    id="<%= htmlWebpackPlugin.options.appMountId%>"
+    data-app-version="<%= htmlWebpackPlugin.options.version %>"
+  >
+    <div class="layout">
+      <header class="main">
+        <h1>Monod <small>The Markdown Editor</small></h1>
+      </header>
+      <div class="editor">
+        <div class="markdown"></div>
+        <div class="vertical-handler">
+          <div class="left" ><i class="fa fa-chevron-left"></i></div>
+          <div class="right"><i class="fa fa-chevron-right"></i></div>
+        </div>
+        <div class="preview"></div>
+      </div>
+      <footer class="main">
+        <div class="credits">
+          By the good folks at TailorDev, 2016.
+        </div>
+      </footer>
+    </div>
+  </div>
 <% } %>
 <script>
     //<![CDATA[
