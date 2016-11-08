@@ -18,7 +18,7 @@ const store = configureStore();
 
 store.dispatch(load(
   window.location.pathname.slice(1),
-  window.location.hash.slice(1)
+  window.location.hash.slice(1),
 ));
 
 if ('production' === process.env.NODE_ENV) {
@@ -36,7 +36,7 @@ ReactDOM.render(
       <App version={appVersion} />
     </Provider>
   </AppContainer>,
-  appElement
+  appElement,
 );
 
 if (module.hot) {
@@ -49,7 +49,7 @@ if (module.hot) {
           <NextApp version={appVersion} />
         </Provider>
       </AppContainer>,
-      appElement
+      appElement,
     );
   });
 }

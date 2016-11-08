@@ -23,6 +23,6 @@ export default function configureStore(initialState) {
     rootReducer,
     initialState,
     'production' !== process.env.NODE_ENV && 'undefined' !== typeof window &&
-    window.devToolsExtension ? window.devToolsExtension() : f => f
+    window.devToolsExtension ? window.devToolsExtension() : f => f,
   );
 }

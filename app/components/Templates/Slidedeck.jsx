@@ -83,7 +83,7 @@ export default class Slidedeck extends BaseTemplate {
               id={index}
               transition={data.transition}
               content={section}
-            />
+            />,
           )}
         </div>
       </div>
@@ -104,7 +104,7 @@ const Section = (props) => {
           data-transition={props.transition}
         >
           {slide}
-        </section>
+        </section>,
       ) : slides}
     </section>
   );
