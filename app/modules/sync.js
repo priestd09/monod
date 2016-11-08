@@ -40,7 +40,7 @@ export function synchronize() { // eslint-disable-line import/prefer-default-exp
 
     if (document.hasNeverBeenSync()) {
       return dispatch(
-        serverPersist(),
+        serverPersist()
       )
       .then(() => {
         dispatch({ type: SYNCHRONIZE_SUCCESS });
@@ -102,7 +102,7 @@ export function synchronize() { // eslint-disable-line import/prefer-default-exp
             dispatch(forceUpdateCurrentDocument(
               serverDoc
                 .set('content', decryptedContent)
-                .set('last_modified_locally', null),
+                .set('last_modified_locally', null)
             ));
 
             dispatch(info(config.DOCUMENT_UPDATED_MESSAGE));
@@ -132,7 +132,7 @@ export function synchronize() { // eslint-disable-line import/prefer-default-exp
                 uuid: fork.get('uuid'),
                 content: encrypt(document.get('content'), forkSecret),
                 template: fork.get('template'),
-              }).toJS(),
+              }).toJS()
             )
             .then(() => {
               // now, we can update the former doc with server content
@@ -147,7 +147,7 @@ export function synchronize() { // eslint-disable-line import/prefer-default-exp
               return db
                 .setItem(
                   former.get('uuid'),
-                  former.toJS(),
+                  former.toJS()
                 )
                 .then(() => {
                   dispatch(warning(
@@ -157,7 +157,7 @@ export function synchronize() { // eslint-disable-line import/prefer-default-exp
                       third, and you are now working on a <strong>fork</strong>.
                       You can still find the original (and updated) document:&nbsp;
                       <a href={`/${former.uuid}#${secret}`}>here</a>.
-                    </span>),
+                    </span>)
                   ));
 
                   dispatch(loadSuccess(fork, forkSecret));

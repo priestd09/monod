@@ -15,7 +15,7 @@ const TemplateForm = props =>
           key={key}
         >
           {component.name}
-        </option>,
+        </option>
       )}
     </select>
   </form>

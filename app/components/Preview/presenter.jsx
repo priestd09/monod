@@ -193,7 +193,7 @@ class Preview extends Component {
     if (this.props.template && this.props.template.length) {
       // Get the template component
       const Template = Templates.find(
-        template => template.id === this.props.template,
+        template => template.id === this.props.template
       ).component;
 
       content = (
