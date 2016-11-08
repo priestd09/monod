@@ -87,7 +87,7 @@ export function load(id, secret) {
           dispatch(isOffline());
 
           return Promise.reject(Errors.SERVER_UNREACHABLE);
-        }),
+        })
       )
       .then((document) => {
         const decryptedContent = decrypt(document.get('content'), secret);

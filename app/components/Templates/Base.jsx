@@ -27,7 +27,7 @@ export default class Base extends Component {
   getData() {
     return merge(
       this.getDefaultData(),
-      Base.cleanData(this.props.data),
+      Base.cleanData(this.props.data)
     );
   }
 }

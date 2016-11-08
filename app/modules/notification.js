@@ -30,7 +30,7 @@ const initialState = {
 
 function doNotify(state, action) {
   const idx = state.messages.findIndex(
-    m => action.message === m.content && action.level === m.level,
+    m => action.message === m.content && action.level === m.level
   );
 
   if (-1 !== idx) {
