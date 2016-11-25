@@ -6,8 +6,31 @@
   text-align: right;
   padding: 1rem;
 
+  @include breakpoint(small only) {
+    & {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+    }
+    .actions{
+      margin-bottom: 0 !important;
+      .action.fullscreen{
+        transform: scale(.7);
+        margin-bottom: 0;
+      }
+    }
+  }
+
   @include breakpoint(medium down) {
+    .actions {
+      .action.share {
+        display: none;
+      }
+    }
+    #templateForm{
       display: none;
+    }
   }
 
   & > * {
