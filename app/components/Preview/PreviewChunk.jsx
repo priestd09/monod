@@ -24,7 +24,7 @@ class PreviewChunk extends Component {
     html = this.props.markdownIt.renderer.render(
       this.props.chunk,
       this.props.markdownIt.options,
-      this.props.markdownItEnv
+      this.props.markdownItEnv,
     );
     html = this.props.emojione.toImage(html);
 
@@ -41,7 +41,7 @@ class PreviewChunk extends Component {
 }
 
 PreviewChunk.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   markdownIt: PropTypes.shape({
     renderer: PropTypes.shape({
       render: PropTypes.func.isRequired,
@@ -52,7 +52,7 @@ PreviewChunk.propTypes = {
     toImage: PropTypes.func.isRequired,
   }).isRequired,
   chunk: PropTypes.arrayOf(
-    PropTypes.object // eslint-disable-line react/forbid-prop-types
+    PropTypes.object, // eslint-disable-line react/forbid-prop-types
   ).isRequired,
   markdownItEnv: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };

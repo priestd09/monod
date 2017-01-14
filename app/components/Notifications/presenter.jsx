@@ -1,4 +1,4 @@
-/* eslint react/no-unused-prop-types: 0 */
+/* eslint react/no-unused-prop-types: 0, react/no-array-index-key: 0 */
 import React, { PropTypes } from 'react';
 import MessageBox from './MessageBox';
 
@@ -11,7 +11,7 @@ const Notifications = props => (
         key={index}
         message={message}
         onClose={props.onMessageBoxClose}
-      />
+      />,
     )}
   </div>
 );

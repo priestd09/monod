@@ -1,4 +1,4 @@
-/* eslint one-var: 0, class-methods-use-this: 0 */
+/* eslint one-var: 0, class-methods-use-this: 0, react/no-array-index-key: 0 */
 import React from 'react';
 import Reveal from 'reveal.js';
 import BaseTemplate from './Base';
@@ -74,7 +74,7 @@ export default class Slidedeck extends BaseTemplate {
     return (
       <div className="reveal">
         {'' !== data.logo ?
-          <img className="logo" src={data.logo} role="presentation" /> : null
+          <img alt="presentation logo" className="logo" src={data.logo} /> : null
         }
         <div className="slides">
           {slides.map((section, index) =>
@@ -83,7 +83,7 @@ export default class Slidedeck extends BaseTemplate {
               id={index}
               transition={data.transition}
               content={section}
-            />
+            />,
           )}
         </div>
       </div>
@@ -104,7 +104,7 @@ const Section = (props) => {
           data-transition={props.transition}
         >
           {slide}
-        </section>
+        </section>,
       ) : slides}
     </section>
   );

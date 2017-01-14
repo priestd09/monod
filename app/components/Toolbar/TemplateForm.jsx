@@ -9,13 +9,13 @@ const TemplateForm = props =>
       onChange={props.onUpdateTemplate}
       value={props.template}
     >
-      {Templates.map((component, key) =>
+      {Templates.map(component =>
         <option
           value={component.id}
-          key={key}
+          key={component.id}
         >
           {component.name}
-        </option>
+        </option>,
       )}
     </select>
   </form>

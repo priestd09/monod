@@ -11,7 +11,7 @@ export const Tags = {
 };
 
 function escapeRegExp(string) {
-  return string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1');
+  return string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1'); // eslint-disable-line
 }
 
 export function addOrRemoveTag(tag, selection) {

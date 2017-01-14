@@ -11,6 +11,7 @@ const ShareModal = props =>
     shouldCloseOnOverlayClick
     className="share-modal"
     style={{ overlay: { zIndex: 5 } }}
+    contentLabel="Sharing links"
   >
     <div className="share-modal-content">
       <button

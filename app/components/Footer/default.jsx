@@ -32,4 +32,8 @@ Footer.propTypes = {
   children: PropTypes.node,
 };
 
+Footer.defaultProps = {
+  children: null,
+};
+
 export default Footer;

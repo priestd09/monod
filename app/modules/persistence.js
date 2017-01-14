@@ -27,7 +27,7 @@ export function localPersist() {
     const secret = getState().documents.secret;
 
     const encrypted = document.set(
-      'content', encrypt(document.get('content'), secret)
+      'content', encrypt(document.get('content'), secret),
     );
 
     return db
@@ -85,7 +85,7 @@ export function serverPersist() {
         dispatch(updateCurrentDocument(current));
 
         const encrypted = current.set(
-          'content', encrypt(current.get('content'), secret)
+          'content', encrypt(current.get('content'), secret),
         );
 
         return db.setItem(encrypted.get('uuid'), encrypted.toJS());

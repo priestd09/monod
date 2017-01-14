@@ -107,7 +107,7 @@ function normalizeAuthors(authors) {
         .split(/\s/)
         .filter(p => '' !== p)
         .map(p =>
-          `${p.charAt(0).toUpperCase()}.`
+          `${p.charAt(0).toUpperCase()}.`,
         )
         .join(' ');
 
