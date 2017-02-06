@@ -69,7 +69,8 @@ describe('modules/monod', () => {
         .then(() => {
           const triggeredActions = store.getActions();
 
-          expect(triggeredActions).to.have.length(1);
+          // there is also the synchronize() action that is dispatched
+          expect(triggeredActions).to.have.length(2);
           expect(triggeredActions[0].type).to.equal(documents.LOAD_SUCCESS);
           expect(triggeredActions[0].document.get('uuid')).to.equal(id);
           expect(triggeredActions[0].document.get('content')).to.equal(content);
@@ -129,10 +130,11 @@ describe('modules/monod', () => {
           .then(() => {
             const triggeredActions = store.getActions();
 
-            expect(triggeredActions).to.have.length(2);
+            expect(triggeredActions).to.have.length(3);
             expect(triggeredActions[0].type).to.equal(actions.IS_ONLINE);
             expect(triggeredActions[1].type).to.equal(documents.LOAD_SUCCESS);
             expect(triggeredActions[1].document.get('uuid')).to.equal(id);
+            // 3rd action is SYNCHRONIZE
           });
       });
 

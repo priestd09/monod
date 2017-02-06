@@ -6,6 +6,7 @@ import reducer, * as actions from '../documents';
 import Document from '../../Document';
 import { LOCAL_PERSIST } from '../persistence';
 import { NOTIFY } from '../notification';
+import { SYNCHRONIZE, NO_NEED_TO_SYNC, SYNCHRONIZE_SUCCESS } from '../sync';
 import dbMock from './dbMock';
 
 // see: https://github.com/mochajs/mocha/issues/1847
@@ -100,13 +101,21 @@ describe('modules/documents', () => {
   });
 
   it('should load a given document', () => {
-    const store = mockStore();
+    const store = mockStore({
+      documents: {
+        current: new Document(),
+        secret: null,
+      },
+    });
 
     const doc = new Document();
     const secret = 'secret';
 
     const expectedActions = [
       { type: actions.LOAD_SUCCESS, document: doc, secret },
+      { type: SYNCHRONIZE },
+      { type: NO_NEED_TO_SYNC },
+      { type: SYNCHRONIZE_SUCCESS },
     ];
 
 

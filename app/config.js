@@ -8,9 +8,8 @@ export default {
   CODE_MIRROR_MODE: 'gfm',
   CODE_MIRROR_THEME: 'monod',
 
-  // in app/components/Sync/
-  SYNC_COUNTER_DURATION: 5, // seconds
-  SYNC_COUNTER_THRESHOLD: 600, // seconds
+  // in app/modules/sync.js
+  SYNC_DELAY: 5000, // milliseconds
 
   SYNC_ONLINE_MESSAGE: 'Connected and synchronized!',
   SYNC_OFFLINE_MESSAGE: 'No Internet connection or server is unreachable',

@@ -1,6 +1,7 @@
 import Document from '../Document';
 import { error } from './notification';
 import { localPersist } from './persistence';
+import { synchronize } from './sync';
 import { newSecret } from '../utils';
 import config from '../config';
 
@@ -22,11 +23,15 @@ export function loadDefault() {
   };
 }
 
-export function loadSuccess(document, secret) {
+export function loadSuccess(document, secret, skipSynchronize) {
   return (dispatch) => {
     dispatch({ type: LOAD_SUCCESS, document, secret });
 
     window.history.pushState({}, 'Monod', `/${document.get('uuid')}#${secret}`);
+
+    if (skipSynchronize !== true) {
+      dispatch(synchronize());
+    }
   };
 }
 

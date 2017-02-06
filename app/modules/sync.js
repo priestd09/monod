@@ -25,11 +25,11 @@ export const NO_NEED_TO_SYNC = 'monod/sync/NO_NEED_TO_SYNC';
 
 // Action Creators
 export function synchronize() { // eslint-disable-line import/prefer-default-export
-  const thunk = (dispatch, getState, { db }) => {
+  const sync = (dispatch, state, db) => {
     dispatch({ type: SYNCHRONIZE });
 
-    const document = getState().documents.current;
-    const secret = getState().documents.secret;
+    const document = state.documents.current;
+    const secret = state.documents.secret;
 
     if (document.isDefault()) {
       dispatch({ type: NO_NEED_TO_SYNC });
@@ -160,7 +160,7 @@ export function synchronize() { // eslint-disable-line import/prefer-default-exp
                     </span>),
                   ));
 
-                  dispatch(loadSuccess(fork, forkSecret));
+                  dispatch(loadSuccess(fork, forkSecret, true)); // skipSynchro
 
                   return Promise.resolve();
                 });
@@ -190,8 +190,21 @@ export function synchronize() { // eslint-disable-line import/prefer-default-exp
         dispatch({ type: SYNCHRONIZE_ERROR, error });
 
         return Promise.resolve();
-      });
+      })
+    ;
   };
 
-  return thunk;
+  return (dispatch, getState, { db }) => { // eslint-disable-line
+    const state = getState();
+
+    return sync(dispatch, state, db)
+      .then(() => {
+        setTimeout(() => {
+          dispatch(synchronize());
+        }, config.SYNC_DELAY);
+
+        return Promise.resolve();
+      })
+    ;
+  };
 }
