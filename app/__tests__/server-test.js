@@ -51,6 +51,7 @@ describe('Express app', () => {
           last_modified: 1459441561629,
           uuid: READONLY_DOCUMENT_UUID,
           readonly: true,
+          name: '',
         }, done);
     });
   });
@@ -108,7 +109,8 @@ describe('Express app', () => {
           content: content,
           uuid: NEW_DOCUMENT_UUID,
           template: '',
-          last_modified: 'date'
+          last_modified: 'date',
+          name: '',
         }, done);
     });
 
@@ -131,6 +133,7 @@ describe('Express app', () => {
           uuid: EXISTING_DOCUMENT_UUID,
           template: '',
           last_modified: 'date',
+          name: '',
         }, done);
     });
 
@@ -146,6 +149,7 @@ describe('Express app', () => {
           last_modified: 1459441561629,
           uuid: READONLY_DOCUMENT_UUID,
           readonly: true,
+          name: '',
         }, done);
     });
   });

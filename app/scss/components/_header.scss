@@ -10,12 +10,15 @@ header.main {
   background-color: $primary-color;
 
   h1 {
-    flex-grow: 1;
+    flex: 1;
     padding: 0 1rem;
     color: $white;
+    overflow-x: hidden;
+    white-space: nowrap;
 
     small {
       color: darken($primary-color, 10%);
+      text-overflow: ellipsis;
     }
   }
 }

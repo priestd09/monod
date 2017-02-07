@@ -77,6 +77,7 @@ export function load(id, secret) {
             last_modified: res.body.last_modified,
             template: res.body.template || '', // avoid BC break
             readonly: res.body.readonly || false, // avoid BC break
+            name: res.body.name || '', // avoid BC break
           }));
         })
         .catch((err) => {

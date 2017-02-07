@@ -12,6 +12,7 @@ export const LOAD_SUCCESS = 'monod/documents/LOAD_SUCCESS';
 export const UPDATE_TEMPLATE = 'monod/documents/UPDATE_TEMPLATE';
 export const UPDATE_CONTENT = 'monod/documents/UPDATE_CONTENT';
 export const UPDATE_CURRENT_DOCUMENT = 'monod/documents/UPDATE_CURRENT_DOCUMENT';
+export const UPDATE_DOCUMENT_NAME = 'monod/documents/UPDATE_DOCUMENT_NAME';
 export const TOGGLE_TASK_LIST_ITEM = 'monod/documents/TOGGLE_TASK_LIST_ITEM';
 
 // Action Creators
@@ -27,9 +28,11 @@ export function loadSuccess(document, secret, skipSynchronize) {
   return (dispatch) => {
     dispatch({ type: LOAD_SUCCESS, document, secret });
 
-    window.history.pushState({}, 'Monod', `/${document.get('uuid')}#${secret}`);
+    const title = `${document.getName()} – Monod`;
+    window.history.pushState({}, title, `/${document.get('uuid')}#${secret}`);
+    window.document.title = title;
 
-    if (skipSynchronize !== true) {
+    if (true !== skipSynchronize) {
       dispatch(synchronize());
     }
   };
@@ -87,6 +90,17 @@ export function updateTemplate(template) {
     }
 
     return Promise.resolve();
+  };
+}
+
+export function updateDocumentName(name) {
+  return (dispatch) => {
+    const newName = name && '' !== name ? name : config.DEFAULT_NAME;
+
+    dispatch({ type: UPDATE_DOCUMENT_NAME, name: newName });
+    window.document.title = `${newName} – Monod`;
+
+    return dispatch(localPersist());
   };
 }
 
@@ -191,6 +205,15 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         current: state.current
           .set('content', action.content)
+          .set('last_modified_locally', Date.now()),
+        forceUpdate: false,
+      };
+
+    case UPDATE_DOCUMENT_NAME:
+      return {
+        ...state,
+        current: state.current
+          .set('name', action.name)
           .set('last_modified_locally', Date.now()),
         forceUpdate: false,
       };

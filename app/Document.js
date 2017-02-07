@@ -5,6 +5,7 @@ import config from './config';
 
 export default class Document extends Record({
   uuid: uuid.v4(),
+  name: config.DEFAULT_NAME,
   content: config.DEFAULT_CONTENT,
   last_modified: null, // defined by the server
   last_modified_locally: null,
@@ -30,5 +31,9 @@ export default class Document extends Record({
 
   isReadOnly() {
     return true === this.readonly;
+  }
+
+  getName() {
+    return this.name;
   }
 }

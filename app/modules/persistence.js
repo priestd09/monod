@@ -66,6 +66,7 @@ export function serverPersist() {
       .send({
         content: encrypt(content, secret),
         template: document.get('template'),
+        name: document.get('name'),
       })
       .then((res) => {
         dispatch(isOnline());
@@ -77,6 +78,7 @@ export function serverPersist() {
           last_modified_locally: null,
           template: res.body.template || '',
           readonly: res.body.readonly || false,
+          name: res.body.name || '',
         });
 
         return Promise.resolve(current);
@@ -109,6 +111,7 @@ export function serverPersist() {
             last_modified_locally: null,
             template: res.body.template || '',
             readonly: res.body.readonly || false,
+            name: res.body.name || '',
           });
 
           dispatch(warning(config.READONLY_MESSAGE));

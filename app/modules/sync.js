@@ -67,6 +67,7 @@ export function synchronize() { // eslint-disable-line import/prefer-default-exp
           last_modified: res.body.last_modified,
           template: res.body.template || '', // avoid BC break
           readonly: res.body.readonly || false, // avoid BC break
+          name: res.body.name || '', // avoid BC break
         }));
       })
       .catch((err) => {
@@ -142,6 +143,7 @@ export function synchronize() { // eslint-disable-line import/prefer-default-exp
                 last_modified: serverDoc.get('last_modified'),
                 template: serverDoc.get('template'),
                 readonly: serverDoc.get('readonly'),
+                name: serverDoc.get('name'),
               });
 
               return db

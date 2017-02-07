@@ -74,6 +74,7 @@ if ('production' === process.env.NODE_ENV || 'test' === process.env.NODE_ENV) {
       document.content = req.body.content;
       document.last_modified = Date.now();
       document.template = req.body.template || '';
+      document.name = req.body.name || '';
 
       fs.writeFile(filename, JSON.stringify(document), (err) => {
         if (err) {

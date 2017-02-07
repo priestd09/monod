@@ -53,6 +53,7 @@ export default {
   ].join(' '),
 
   // in app/Document.js
+  DEFAULT_NAME: 'New Monod document',
   DEFAULT_CONTENT: [
     '---',
     'hello: world! # YAML Front Matter (for templates)',
