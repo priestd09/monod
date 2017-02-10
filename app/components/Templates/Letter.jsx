@@ -14,13 +14,13 @@ export default class Letter extends BaseTemplate {
       addressFrom: {
         name: '[addressFrom/name]',
         street: '[addressFrom/street]',
-        zipCode: '[addressFrom/zipcode]',
+        zipCode: '[addressFrom/zipCode]',
         city: '[addressFrom/city]',
       },
       addressTo: {
         name: '[addressTo/name]',
         street: '[addressTo/street]',
-        zipCode: '[addressTo/zipcode]',
+        zipCode: '[addressTo/zipCode]',
         city: '[addressTo/city]',
       },
       signature: '[signature]',
