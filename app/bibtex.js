@@ -16,7 +16,7 @@ function optional(string, fallback) {
 }
 
 function validUrl(string) {
-  return (/^https?:\/\//.test(string) || /^ftp:\/\//.test(string))
+  return (/^https?:\/\//.test(string) || /^ftp:\/\//.test(string));
 }
 
 function linkify(string, title) {
