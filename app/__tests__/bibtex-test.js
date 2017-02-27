@@ -114,6 +114,14 @@ describe('bibtex', () => {
       expect(result[0].html).to.equal(expected);
     });
 
+    it('should parse online sources', () => {
+      const [content, expected] = fixture('online');
+      const result = bibtex.parse(content);
+
+      expect(result).to.have.length(1);
+      expect(result[0].html).to.equal(expected);
+    });
+
     it('should parse misc (fallback)', () => {
       const [content, expected] = fixture('misc');
       const result = bibtex.parse(content);

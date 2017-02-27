@@ -180,6 +180,15 @@ function formatHtmlEntry(type, data) {
       ].join(' ');
       break;
 
+    case 'online':
+      content = [
+        `${formatAuthors(data.author)} (${data.year}).`,
+        `${data.title}.`,
+        `${linkify(data.url)} (${data.urldate}).`,
+        `${data.note || ''}`,
+      ].join(' ');
+      break;
+
     case 'misc':
     default:
       content = [
