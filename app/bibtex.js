@@ -15,9 +15,13 @@ function optional(string, fallback) {
   return undefined !== str ? `(${str})` : '';
 }
 
+function validUrl(string) {
+  return (/^https?:\/\//.test(string) || /^ftp:\/\//.test(string))
+}
+
 function linkify(string, title) {
   const str = title || string;
-  if (/^https?:\/\//.test(string)) {
+  if (validUrl(string)) {
     return `<a href="${string}" rel="noreferrer noopener">${str}</a>`;
   }
 
@@ -26,7 +30,7 @@ function linkify(string, title) {
 
 function linkifyDOI(string) {
   let str = string;
-  if (!/^https?:\/\//.test(str)) {
+  if (!validUrl(str)) {
     str = `http://dx.doi.org/${str}`;
   }
 
@@ -34,7 +38,7 @@ function linkifyDOI(string) {
 }
 
 function linkifyTitle(title, link) {
-  if (/^https?:\/\//.test(link)) {
+  if (validUrl(link)) {
     return linkify(link, title);
   }
 
