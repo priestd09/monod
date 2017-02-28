@@ -15,13 +15,13 @@ function optional(string, fallback) {
   return undefined !== str ? `(${str})` : '';
 }
 
-function validUrl(string) {
+function isValidUrl(string) {
   return (/^https?:\/\//.test(string) || /^ftp:\/\//.test(string));
 }
 
 function linkify(string, title) {
   const str = title || string;
-  if (validUrl(string)) {
+  if (isValidUrl(string)) {
     return `<a href="${string}" rel="noreferrer noopener">${str}</a>`;
   }
 
@@ -30,7 +30,7 @@ function linkify(string, title) {
 
 function linkifyDOI(string) {
   let str = string;
-  if (!validUrl(str)) {
+  if (!isValidUrl(str)) {
     str = `http://dx.doi.org/${str}`;
   }
 
@@ -38,7 +38,7 @@ function linkifyDOI(string) {
 }
 
 function linkifyTitle(title, link) {
-  if (validUrl(link)) {
+  if (isValidUrl(link)) {
     return linkify(link, title);
   }
 
