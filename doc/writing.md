@@ -102,6 +102,23 @@ corresponds to any of the given references. An important point to note here is
 that even if one reference is not found the whole set of references will be
 marked as invalid.
 
+The following types of citations are supported by Monod:
+* `inproceedings`:
+    + Required fields: author, year, title, booktitle, pages, url
+    + Optional fields: 
+* `article`:
+    + Required fields: author, year, title, journal, volume, pages, doi
+    + Optional fields: either issue or number
+* `book`:
+    + Required fields: author, year, title, publisher
+    + Optional fields:
+* `online`:
+    + Required fields: author, year, title, url, urldate
+    + Optional fields: note
+* `misc` and also fallback of none of the above:
+    + Required fields: author, year, url
+    + Optional fields: title, note
+
 ### Emoji
 
 We support **emoji** too! :tada:

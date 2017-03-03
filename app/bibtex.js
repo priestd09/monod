@@ -15,9 +15,13 @@ function optional(string, fallback) {
   return undefined !== str ? `(${str})` : '';
 }
 
+function isValidUrl(string) {
+  return (/^https?:\/\//.test(string) || /^ftp:\/\//.test(string));
+}
+
 function linkify(string, title) {
   const str = title || string;
-  if (/^https?:\/\//.test(string)) {
+  if (isValidUrl(string)) {
     return `<a href="${string}" rel="noreferrer noopener">${str}</a>`;
   }
 
@@ -26,7 +30,7 @@ function linkify(string, title) {
 
 function linkifyDOI(string) {
   let str = string;
-  if (!/^https?:\/\//.test(str)) {
+  if (!isValidUrl(str)) {
     str = `http://dx.doi.org/${str}`;
   }
 
@@ -34,7 +38,7 @@ function linkifyDOI(string) {
 }
 
 function linkifyTitle(title, link) {
-  if (/^https?:\/\//.test(link)) {
+  if (isValidUrl(link)) {
     return linkify(link, title);
   }
 
@@ -177,6 +181,15 @@ function formatHtmlEntry(type, data) {
         `${formatAuthors(data.author)} (${data.year}).`,
         `<em>${data.title}</em>.`,
         `${data.publisher}`,
+      ].join(' ');
+      break;
+
+    case 'online':
+      content = [
+        `${formatAuthors(data.author)} (${data.year}).`,
+        `${data.title}.`,
+        `${linkify(data.url)} (${data.urldate}).`,
+        `${data.note || ''}`,
       ].join(' ');
       break;
 
