@@ -33,7 +33,7 @@
     // Hide unwanted elements
     header.main,
     form#templateForm,
-    div.markdown,
+    .layout .editor.edit-preview .markdown,
     div.vertical-handler,
     footer.main {
         display: none;
