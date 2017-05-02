@@ -1,6 +1,8 @@
 Monod
 =====
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/TailorDev/monod.svg)](https://greenkeeper.io/)
+
 [![Circle CI](https://circleci.com/gh/TailorDev/monod.svg?style=svg)](https://circleci.com/gh/TailorDev/monod)
 
 ![Build Status](https://saucelabs.com/browser-matrix/willdurand.svg)
