@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import grayMatter from 'gray-matter';
 
 import 'emojione/assets/sprites/emojione.sprites.css';
@@ -138,9 +139,8 @@ class Preview extends Component {
         i < start ||
         !(
           // We are (NOT) closing a nested block
-          (0 === tokens[i].level && -1 === tokens[i].nesting) ||
-          // We are (NOT) in a root block
-          (0 === tokens[i].level && 0 === tokens[i].nesting)
+          (// We are (NOT) in a root block
+          0 === tokens[i].level && -1 === tokens[i].nesting || 0 === tokens[i].level && 0 === tokens[i].nesting)
         )
       ) {
         continue; // eslint-disable-line no-continue

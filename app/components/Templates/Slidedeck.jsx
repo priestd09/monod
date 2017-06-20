@@ -1,12 +1,11 @@
 /* eslint one-var: 0, class-methods-use-this: 0, react/no-array-index-key: 0 */
 import React from 'react';
 import Reveal from 'reveal.js';
+import PropTypes from 'prop-types';
 import BaseTemplate from './Base';
 
 import '../../scss/reveal.css';
 import '../../scss/reveal-theme.css';
-
-const { number, array, string } = React.PropTypes;
 
 // transforms a chunk set into subsets for Reveal sections
 const splitContentIntoSections = (content, separator) => {
@@ -112,7 +111,7 @@ const Section = (props) => {
 
 Section.propTypes = {
   // eslint rule disabled becasue false positive
-  id: number.isRequired, // eslint-disable-line react/no-unused-prop-types
-  content: array.isRequired, // eslint-disable-line react/forbid-prop-types
-  transition: string.isRequired,
+  id: PropTypes.number.isRequired, // eslint-disable-line react/no-unused-prop-types
+  content: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  transition: PropTypes.string.isRequired,
 };

@@ -83,6 +83,7 @@
     "nyc": "^10.1.0",
     "offline-plugin": "github:willdurand/offline-plugin#monod",
     "postcss-loader": "^1.0.0",
+    "prop-types": "^15.5.10",
     "raven-js": "^3.9.0",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",

@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 /* eslint react/no-danger: 0 */
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import isEqual from 'lodash.isequal';
 
 
