@@ -13,7 +13,7 @@ const Footer = props =>
         rel="noopener noreferrer"
       >
         TailorDev
-      </a>, 2016.
+      </a>, 2017.
     </div>
 
     <div className="info-bar">
