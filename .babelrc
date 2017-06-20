@@ -1,11 +1,5 @@
 {
-  "presets": [
-    ["airbnb", {
-      "targets": {
-        "browsers": ["last 2 versions", "safari >= 7"]
-      }
-    }]
-  ],
+  "presets": ["airbnb"],
   "plugins": ["transform-object-rest-spread"],
   "env": {
     "dev": {
