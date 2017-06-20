@@ -20,7 +20,7 @@
     "start": "NODE_ENV=production node server.js",
     "cov": "nyc --extension .jsx npm run test",
     "e2e": "nightwatch --config test/nightwatch.js",
-    "e2e:ci": "npm run e2e -- --output $CIRCLE_TEST_REPORTS --env ie,latest_edge,chrome,latest_chrome,firefox,latest_firefox,safari"
+    "e2e:ci": "npm run e2e -- --output $CIRCLE_TEST_REPORTS --env ie,latest_edge,chrome,latest_chrome,safari"
   },
   "devDependencies": {
     "@tanepiper/webpack-robotstxt": "^0.2.0",
