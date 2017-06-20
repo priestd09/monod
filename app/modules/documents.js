@@ -29,7 +29,7 @@ export function loadSuccess(document, secret, skipSynchronize) {
 
     window.history.pushState({}, 'Monod', `/${document.get('uuid')}#${secret}`);
 
-    if (skipSynchronize !== true) {
+    if (true !== skipSynchronize) {
       dispatch(synchronize());
     }
   };
