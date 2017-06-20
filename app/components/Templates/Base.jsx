@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 /* eslint react/forbid-prop-types: 0, react/no-unused-prop-types: 0 */
-import { PropTypes, Component } from 'react';
+import { Component } from 'react';
 import merge from 'deepmerge';
 
 

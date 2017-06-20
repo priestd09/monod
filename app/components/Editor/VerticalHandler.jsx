@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 /* eslint jsx-a11y/no-static-element-interactions: 0 */
-import React, { PropTypes } from 'react';
+import React from 'react';
 
 const { func } = PropTypes;
 

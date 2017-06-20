@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 
 const Footer = props =>
@@ -12,7 +13,7 @@ const Footer = props =>
         rel="noopener noreferrer"
       >
         TailorDev
-      </a>, 2016.
+      </a>, 2017.
     </div>
 
     <div className="info-bar">

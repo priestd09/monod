@@ -80,7 +80,7 @@ module.exports = (md) => {
         break;
       }
 
-      pos = mem = state.bMarks[nextLine] + state.tShift[nextLine];
+      pos = mem = state.bMarks[nextLine] + state.tShift[nextLine]; // eslint-disable-line
       max = state.eMarks[nextLine];
 
       if (pos < max && state.sCount[nextLine] < state.blkIndent) {
