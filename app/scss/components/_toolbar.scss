@@ -15,7 +15,7 @@
     }
     .actions{
       margin-bottom: 0 !important;
-      .action.fullscreen{
+      .action.fullscreen {
         transform: scale(.7);
         margin-bottom: 0;
       }
@@ -44,6 +44,8 @@
 
   .actions {
     @include button-group('.action');
+
+    display: inline-block;
 
     .action {
       @include button($background: darken($primary-color, 10%));

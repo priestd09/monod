@@ -96,7 +96,7 @@ Fix all ESLint problems.
 
 ## Requirements
 
-We use `node` 8.0+ and `npm` 3.7+.
+We use `node` 8.0+ and `npm` 5.0+.
 
 
 ## Contributing
