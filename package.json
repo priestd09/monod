@@ -32,7 +32,7 @@
     "babel-polyfill": "^6.16.0",
     "babel-preset-airbnb": "^2.1.1",
     "babel-register": "^6.16.0",
-    "bibtex-parse-js": "0.0.23",
+    "bibtex-parse-js": "0.0.24",
     "chai": "^4.1.1",
     "chai-as-promised": "^7.1.0",
     "clean-webpack-plugin": "^0.1.15",
